@@ -1,0 +1,307 @@
+/* font-family: "Moderustic", sans-serif;
+font-family: "Roboto Mono", monospace; */
+
+/* NORMALIZACION */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*Esto mantiene el ancho y alto a pesar de padding y border*/
+    font-family: "Moderustic", sans-serif;
+    list-style: none;/*Quita los puntos y deco que anteceden a las listas*/
+    text-decoration: none;
+    color: white;
+}
+
+body{
+    background-color: black; /* TODO: borrar cuando tengamos el fondo final */
+}
+
+header{
+    position: absolute; /*Esto fija el header en la parte superior*/
+    right: 0;
+    top: 0;
+    z-index: 100; /*Esto hace que el header se muestre por encima*/
+    width: 100%;
+    display: flex; /*Esto hara que los elementos se pongan en linea*/
+    align-items: center; /*Centra verticalmente dentro del header*/
+    justify-content: space-between;/*hace que los elementos se separen */
+    padding: 15px 3%;
+    background-color: transparent;
+}
+
+.logo{
+    font-size: 30px;
+    font-family:"Roboto Mono", monospace;
+    font-weight: 700; /*Grosor de las letras*/
+}
+
+.navlist{
+    display: flex; /*Sirve para que los li se pongan en linea*/
+}
+
+.navlist a{
+    margin-left: 60px; /*Esto es p separar las palabras entre si*/
+    font-size: 15px;
+    font-weight: 400;
+    border-bottom: 2px solid transparent; /*Esto es un subrayado transparente*/
+    transition: all .5s ease 0s; /*animacion de las caracteristicas del .navlist a */
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white; /*Esto es un subrayado blanco que aparece cuando hacemos hover*/
+}
+
+#menu-icon{
+    display: none; /*Lo pongo en none para que solo se vea cuando la pag este colapsada de forma horizontal*/
+}
+#menu-toggle{
+    display: none; /*nunca quiero que se vea el checkbox*/
+}
+.menu-icon-action{
+    display: none; /*para que no se le pueda hacer click */
+}
+
+#menu-icon{
+    font-size: 40px;
+    z-index: 101; /*para que este sobre el header*/
+    cursor: pointer; /*para que aparezca la manito si pasamos el cursor por encima*/
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, #b63281 0%, #883b68 25%, #22151b 75%); /*fondo de color gradiente*/
+    position: relative; /*nos permite usar top, bottom, left y rigth */
+    display: grid; /* para dividir el hero en dos columnas */
+    grid-template-columns: 1fr 1fr; /* las 2 columnas */
+    align-items: center; /*para alinear verticalmente el hero*/
+    gap: 2rem; /*para que haya espacio de 2rem entre las dos columnas */
+}   
+
+section{
+    padding: 0 8%;
+}
+
+.hero-img img{
+    width: 400px;
+    border-radius: 50%;
+    border: 4px solid #4b2838;
+    margin: 10% 0 0 10% ;
+    height: auto;
+    transition: all 4s ease-in-out;
+}
+
+.hero-img img:hover {
+    width: 450px;
+    opacity: 0.6;
+}
+
+.hero-text h1{
+    font-family: "Roboto Mono", monospace;
+    font-size: 50px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+
+.hero-text h5{
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 25px;
+}
+
+.hero-text h4{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-family:"Roboto Mono", monospace; ;
+}
+
+.hero-text p{
+    font-size: 80%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.hero-text a{
+    display: inline-block;
+    background-color: #392f34;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    transform: translateX(8px);
+    border: 1px solid white;
+}
+
+.hero-text a.cursos{
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.cursos i{
+    margin-right: 5px;
+}
+
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    transition: all .5s ease;
+}
+
+.icons i:hover{
+    color: #392f34;
+    transform: translateY(-5px);
+}
+
+.scroll-down{
+    position: absolute;
+    bottom: 6%;
+    right: 3%;
+}
+
+.scroll-down i{
+    display: block;
+    padding: 12px;
+    font-size: 25px;
+    background-color:#22151b94;
+    border-radius: 30px;
+    transition: all .5s ease;
+}
+
+.scroll-down i:hover{
+    transform: translateY(5px);
+}
+
+
+/* ACA VAMOS A HACER MEDIAQUERIES PARA QUE LA WEB SEA RESPONSIVE */
+@media (max-width:992px){
+    section{
+        padding: 0 3%;
+        transition: .2s;
+    }
+
+    .hero-text{
+        padding-top: 0;
+    }
+    .hero-img{
+        text-align: center;
+    }
+    .hero-img img:hover{
+        width: 85%;
+        opacity: .6;
+    }
+
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .hero-text p{
+        font-size: 70%;
+
+    }
+    .icons{
+
+        display: flex;
+        bottom: 100%;
+        margin: 200px 0px 0px 100px;
+        align-items: baseline;
+        transition: all .5s ease;
+    }
+    .icons i{
+        margin-left: 15px;
+        font-size: 35px;
+    }
+    .scroll-down{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+    body{
+        overflow-x:hidden ;
+    }
+    
+    .menu-icon-action{
+        display: block;
+        position: absolute ;
+        right: 5px;
+        margin-top: 10px;
+    }
+
+    #menu-icon{
+        display: block;
+    }
+
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img{
+        margin: 0%;
+    }
+
+
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 150px;
+        height: 180px;
+        background-color: #22151bdf;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 17px 20px;
+        transition: all .5s ease-out;
+        border-radius: 20px;
+    }
+
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0%;
+    }
+
+    .icons{
+        display: flex;
+        margin: 0;
+        transition: all .5s ease;
+        position:unset;
+        justify-content: right;
+    }
+
+    #logo{
+        position:absolute;
+        margin-top: 10px;
+    }
+}
+    
